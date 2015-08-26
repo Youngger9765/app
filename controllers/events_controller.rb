@@ -16,9 +16,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
-
-    redirect_to :action => :index
+    
+    if @event.save
+      redirect_to :action => :index   
+    else
+      render :action => :new 
+    end
   end
   
   def edit
