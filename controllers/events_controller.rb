@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @page_title = @event.name
   end
 
   def create
@@ -35,6 +36,7 @@ class EventsController < ApplicationController
 
     redirect_to :action => :show, :id => @event
   end
+
 
   private
 
